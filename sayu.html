@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; font-family: sans-serif; }
+
+  .page {
+    width: 100vw;
+    height: 100vh;
+    background-color: burlywood;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top: 0; left: 0;
+    overflow: hidden;
+  }
+
+  .page.hidden { display: none; }
+
+  h3 { font-size: clamp(1rem, 4vw, 1.4rem); margin-bottom: 6px; color: #222; }
+  h4 { font-size: clamp(0.85rem, 3vw, 1.1rem); color: #333; margin-bottom: 12px; }
+
+  .gif-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 12px auto;
+  }
+  .gif-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .btn-yes {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: clamp(0.85rem, 3vw, 1rem);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-yes:hover { background-color: #0a58ca; }
+
+  .btn-no {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: clamp(0.85rem, 3vw, 1rem);
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: top 0.15s ease, left 0.15s ease;
+    z-index: 9999;
+    touch-action: none;
+    user-select: none;
+  }
+
+  .btn-continue {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: clamp(0.75rem, 2.8vw, 0.95rem);
+    cursor: pointer;
+    max-width: 90%;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .btn-continue:hover { background-color: #0a58ca; }
+
+  #page3 img.full { width: 100vw; height: 50vh; object-fit: none; }
+  #page3 img.side { width: 50vw; height: 50vh; object-fit: cover; }
+  #page3 {
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    padding: 0;
+    align-items: stretch;
+    justify-content: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="page" id="page1">
+  <h3>Can I take you out for a date this weekend, Sayuu 👉👈 ?</h3>
+  <h4>PLIS 🫠👉👈</h4>
+  <div class="gif-container">
+    <img src="https://media.giphy.com/media/PdcTSy3CjZ5M4/giphy.gif" alt="cute gif">
+  </div>
+  <div class="button-container">
+    <button class="btn-yes" onclick="goToPage2()">
+      YESSSS 🤓
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- Floating No Button -->
+<button class="btn-no" id="noBtn">
+  nopee 😔
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m-2.715 5.933a.5.5 0 0 1-.183-.683A4.5 4.5 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.5 3.5 0 0 0 8 10.5a3.5 3.5 0 0 0-3.032 1.75.5.5 0 0 1-.683.183M10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8"/>
+  </svg>
+</button>
+
+<!-- Page 2 -->
+<div class="page hidden" id="page2">
+  <h3>YAYYYYYYYYYY 🥰🥰💕 !!!!!!!!!!!!!!!!</h3>
+  <div class="gif-container">
+    <img src="https://media.giphy.com/media/aMvNJI0oTvNrW/giphy.gif" alt="yay gif">
+  </div>
+  <button class="btn-continue" onclick="goToPage3()">
+    CLICK HERE TO SEE MY REACTION EVERYTIME I SEE YOU, HEHHEEHEHE 🫣🫠?? &lt;3
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zm-2 4v-1c0-.276.244-.5.545-.5h10.91c.3 0 .545.224.545.5v1c0 .276-.244.5-.546.5H2.545C2.245 5 2 4.776 2 4.5m6 3.493c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9z"/>
+      <path d="M.88 8C-2.427 1.68 4.41-2 7.823 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8z"/>
+    </svg>
+  </button>
+</div>
+
+<!-- Page 3 -->
+<div class="page hidden" id="page3">
+  <img class="full" src="https://media.giphy.com/media/enrq327a3sMIJAS5jA/giphy.gif" alt="reaction gif">
+  <img class="side" src="https://media.giphy.com/media/l4Ki4biBSwhjyrS48/giphy.gif" alt="extra gif">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    emailjs.init({
+        publicKey: "iiW4y1el8nzs3y9jr"
+    });
+</script>
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const page1 = document.getElementById('page1');
+  let noVisible = true;
+
+  function getRandomPos() {
+    const bw = noBtn.offsetWidth || 100;
+    const bh = noBtn.offsetHeight || 44;
+    const maxX = window.innerWidth - bw - 10;
+    const maxY = window.innerHeight - bh - 10;
+    return {
+      x: Math.max(10, Math.floor(Math.random() * maxX)),
+      y: Math.max(10, Math.floor(Math.random() * maxY))
+    };
+  }
+
+  function moveNoBtn() {
+    const pos = getRandomPos();
+    noBtn.style.left = pos.x + 'px';
+    noBtn.style.top = pos.y + 'px';
+  }
+
+  function initNoBtn() {
+    const pos = getRandomPos();
+    noBtn.style.left = pos.x + 'px';
+    noBtn.style.top = pos.y + 'px';
+  }
+
+  document.addEventListener('mousemove', function(e) {
+    if (!noVisible) return;
+    const rect = noBtn.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dist = Math.sqrt((e.clientX - cx) ** 2 + (e.clientY - cy) ** 2);
+    if (dist < 120) moveNoBtn();
+  });
+
+  noBtn.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    moveNoBtn();
+  }, { passive: false });
+
+  noBtn.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    moveNoBtn();
+  }, { passive: false });
+
+  noBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    moveNoBtn();
+  });
+
+  function goToPage2() {
+    page1.classList.add('hidden');
+    noBtn.style.display = 'none';
+    noVisible = false;
+    emailjs.send("service_g7r5395","template_7wykkfc");
+    document.getElementById('page2').classList.remove('hidden');
+  }
+
+  function goToPage3() {
+    document.getElementById('page2').classList.add('hidden');
+    document.getElementById('page3').classList.remove('hidden');
+  }
+
+  window.addEventListener('load', initNoBtn);
+  window.addEventListener('resize', initNoBtn);
+</script>
+</body>
+</html>
