@@ -1,152 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>For My Favorite Girl ❤️</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-font-family:Segoe UI,sans-serif;
-background:linear-gradient(180deg,#090b20,#120f2b,#1d1034);
-color:#fff;overflow-x:hidden}
-#stars,#hearts,#petals{position:fixed;inset:0;pointer-events:none}
-.star,.heart,.petal{position:absolute;animation:float linear infinite}
-.star{width:2px;height:2px;background:#fff;border-radius:50%;box-shadow:0 0 8px #fff}
-.heart{color:#ff79c6;font-size:18px}
-.petal{font-size:18px}
-@keyframes float{from{transform:translateY(-10vh)}to{transform:translateY(110vh)}}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px}
-.hero h1{font-size:clamp(2rem,6vw,4rem);animation:pulse 2s infinite}
-@keyframes pulse{50%{transform:scale(1.03)}}
-.type{font-size:1.2rem;max-width:900px;margin:20px auto;min-height:70px}
-.glass{
-width:min(900px,92%);
-margin:80px auto;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(14px);
-border:1px solid rgba(255,255,255,.15);
-padding:35px;border-radius:28px;
-box-shadow:0 20px 60px rgba(0,0,0,.3);
-opacity:0;transform:translateY(60px);transition:1s}
-.glass.show{opacity:1;transform:none}
-.glass h2{color:#ffb6f9}
-.glass p{font-size:1.1rem;line-height:1.9}
-.gif{display:block;margin:25px auto;border-radius:20px;max-width:320px;width:100%}
-button{
-padding:15px 30px;border:none;border-radius:50px;
-background:#ff5ca8;color:white;font-weight:bold;
-font-size:1rem;transition:.3s}
-button:hover{transform:scale(1.05)}
-#banner{
-position:fixed;top:20px;left:50%;transform:translateX(-50%);
-background:#ff5ca8;color:#fff;padding:14px 24px;
-border-radius:40px;opacity:0;transition:.4s;z-index:9999}
-#banner.show{opacity:1}
-footer{padding:120px 20px;text-align:center}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Miss You So Much</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a10;
+            --panel: #111119;
+            --red: #e0202f;
+            --red-dark: #8e0f1c;
+            --blue: #1c3fae;
+            --blue-dark: #0b1c56;
+            --white: #f3f3f6;
+            --gold: #ffd23f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .web-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.14;
+            background-image:
+                repeating-linear-gradient(0deg, transparent 0 38px, rgba(224, 32, 47, 0.5) 38px 39px),
+                repeating-linear-gradient(90deg, transparent 0 38px, rgba(224, 32, 47, 0.5) 38px 39px);
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .corner-web {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            z-index: 2;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .corner-web.tl {
+            top: 0;
+            left: 0;
+        }
+
+        .corner-web.tr {
+            top: 0;
+            right: 0;
+            transform: scaleX(-1);
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background:
+                radial-gradient(ellipse at 50% 20%, rgba(224, 32, 47, 0.22), transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(28, 63, 174, 0.3), transparent 60%);
+        }
+
+        .eyebrow {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .hero h1 {
+            font-family: 'Bangers', cursive;
+            font-size: clamp(2.6rem, 8vw, 5.8rem);
+            letter-spacing: 2px;
+            line-height: 1.05;
+            color: var(--white);
+            text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--blue-dark);
+        }
+
+        .hero p.sub {
+            margin: 18px auto 0;
+            font-size: clamp(1rem, 2.4vw, 1.25rem);
+            max-width: 560px;
+            color: #cfcfe0;
+        }
+
+        .hero-gif-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .hero-gif-row img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            border: 3px solid var(--red);
+            border-radius: 10px;
+            background: var(--panel);
+            padding: 6px;
+        }
+
+        .thwip-tag {
+            display: inline-block;
+            margin-top: 26px;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            color: var(--black);
+            background: var(--gold);
+            padding: 9px 24px;
+            border-radius: 6px;
+            border: 3px solid var(--black);
+        }
+
+        /* ---------- Section headers ---------- */
+        .section-tag {
+            font-family: 'Bangers', cursive;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: var(--red);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-family: 'Bangers', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        h2 .accent {
+            color: var(--red);
+            text-shadow: 2px 2px 0 var(--blue-dark);
+        }
+
+        /* ---------- Comic panel ---------- */
+        .panel {
+            background: var(--panel);
+            border: 3px solid var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 8px 8px 0 var(--red), 8px 8px 0 3px var(--black);
+            margin-bottom: 32px;
+        }
+
+        .panel::before {
+            content: attr(data-caption);
+            position: absolute;
+            top: -18px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--black);
+            font-family: 'Bangers', cursive;
+            font-size: 0.9rem;
+            padding: 4px 14px;
+            border: 2px solid var(--black);
+            border-radius: 4px;
+        }
+
+        .panel p {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: #dcdce8;
+        }
+
+        .panel-with-gif {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .panel-with-gif img {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            border: 3px solid var(--red);
+            border-radius: 10px;
+            background: var(--black);
+            padding: 8px;
+            flex-shrink: 0;
+        }
+
+        .panel-with-gif .text {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        /* ---------- I love you grid ---------- */
+        .love-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .love-chip {
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            border: 3px solid var(--black);
+            border-radius: 10px;
+            padding: 20px 16px;
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        .love-chip:nth-child(even) {
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+        }
+
+        .love-chip img {
+            display: block;
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            margin: 0 auto 8px;
+        }
+
+        /* ---------- Reasons list ---------- */
+        .reasons {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .reasons li {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: var(--panel);
+            border-left: 5px solid var(--red);
+            border-radius: 6px;
+            padding: 16px 18px;
+        }
+
+        .reasons .num {
+            font-family: 'Bangers', cursive;
+            font-size: 1.4rem;
+            color: var(--gold);
+            min-width: 34px;
+        }
+
+        .reasons p {
+            color: #dcdce8;
+            line-height: 1.6;
+        }
+
+        /* ---------- Notes grid ---------- */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 10px;
+        }
+
+        .note-card {
+            background: var(--blue);
+            border: 3px solid var(--black);
+            border-radius: 10px;
+            padding: 22px;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+        }
+
+        .note-card img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .note-card p {
+            font-size: 0.98rem;
+            line-height: 1.5;
+            color: var(--white);
+        }
+
+        .note-card:nth-child(2n) {
+            background: var(--red);
+        }
+
+        /* ---------- Love letter section ---------- */
+        .letter-panel {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .letter-panel img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            border: 3px solid var(--gold);
+            border-radius: 10px;
+            background: var(--black);
+            padding: 10px;
+            flex-shrink: 0;
+        }
+
+        .letter-panel .text {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .letter-panel p {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #f0e6d2;
+        }
+
+        /* ---------- Finale ---------- */
+        .finale {
+            text-align: center;
+        }
+
+        .finale p {
+            max-width: 520px;
+            margin: 0 auto 26px;
+            color: #cfcfe0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .finale-gif {
+            width: 220px;
+            max-width: 80%;
+            margin: 0 auto 24px;
+            display: block;
+        }
+
+        .final-tag {
+            display: inline-block;
+            font-family: 'Bangers', cursive;
+            font-size: 1.4rem;
+            color: var(--black);
+            background: var(--gold);
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: 3px solid var(--black);
+            box-shadow: 5px 5px 0 var(--red);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 60px;
+            color: #6a6a80;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer .sig {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        @media (max-width:600px) {
+            section {
+                padding: 60px 16px;
+            }
+
+            .panel {
+                padding: 22px 18px;
+            }
+
+            .panel-with-gif,
+            .letter-panel {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div id="stars"></div>
-<div id="hearts"></div>
-<div id="petals"></div>
-<div id="banner"></div>
+    <div class="web-bg" aria-hidden="true"></div>
 
-<section class="hero">
-<h1>For My Cutie ❤️</h1>
-<div class="type" id="type"></div>
-<img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-</section>
+    <!-- HERO -->
+    <section class="hero">
+        <svg class="corner-web tl" viewBox="0 0 100 100" aria-hidden="true">
+            <g stroke="#f3f3f6" stroke-width="1" fill="none" opacity="0.6">
+                <path d="M0,0 L100,100 M0,0 L60,100 M0,0 L100,60 M0,0 L100,0 M0,0 L0,100" />
+                <path d="M0,15 Q20,20 30,0 M0,35 Q35,40 45,0 M0,55 Q50,60 65,0 M0,75 Q65,78 85,0" />
+            </g>
+        </svg>
+        <svg class="corner-web tr" viewBox="0 0 100 100" aria-hidden="true">
+            <g stroke="#f3f3f6" stroke-width="1" fill="none" opacity="0.6">
+                <path d="M0,0 L100,100 M0,0 L60,100 M0,0 L100,60 M0,0 L100,0 M0,0 L0,100" />
+                <path d="M0,15 Q20,20 30,0 M0,35 Q35,40 45,0 M0,55 Q50,60 65,0 M0,75 Q65,78 85,0" />
+            </g>
+        </svg>
 
-<div class="glass"><h2>You.</h2><p>Somehow you became my favourite notification, my favourite distraction, and my favourite part of every day. I genuinely don't know when it happened... but you slowly became someone I think about from the moment I wake up until I fall asleep.</p></div>
+        <p class="eyebrow">Your friendly neighborhood someone, missing you&hellip;</p>
+        <h1>I MISS YOU<br>SO MUCH</h1>
+        <p class="sub">No radar tingles when youre near, but somehow I always know exactly how far away you are. Every
+            mile of it aches.</p>
 
-<div class="glass"><img class="gif" src="https://media.giphy.com/media/aMvNJI0oTvNrW/giphy.gif"><h2>Your Smile</h2><p>Your smile has this ridiculous superpower. It fixes bad days, makes my heart race, and somehow leaves me smiling like an idiot at my phone. It's unfair... but I absolutely love it.</p></div>
+        <div class="hero-gif-row">
+            <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MHQxZjhuOXRicnhobWhjbzd0c2kxajA0ZTRodGx6Z25jb2RtanQ2ciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZEkWtEstRs3bklBW01/giphy.gif"
+                alt="Animated red spider on a web">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzNkMmtldXl2bHg1NWJ4bmx1NTRoZzMxY2ZieWI4ZHJ1c3Z1YWxkdCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l46Cnk4ZRTlfeI32o/giphy.gif"
+                alt="Animated beating red heart">
+            <img src="https://cdn.pixabay.com/animation/2025/09/22/07/49/07-49-25-482_512.gif"
+                alt="Animated spider web wiggling">
+        </div>
 
-<div class="glass"><h2>You're Beautiful.</h2><p>Not just because you're pretty. It's the way you laugh. The way you react to tiny things. The way you make ordinary moments feel special. To me, you're genuinely one of the most beautiful people I've ever met.</p></div>
+        <span class="thwip-tag">THWIP! ❤ FOR YOU</span>
+    </section>
 
-<div class="glass"><img class="gif" src="https://media.giphy.com/media/PdcTSy3CjZ5M4/giphy.gif"><h2>I Miss You.</h2><p>I don't only miss talking to you. I miss sharing random moments with you. I miss imagining what it'd be like if you were here while I'm drinking tea, driving around, or simply doing nothing at all.</p></div>
+    <!-- MISSING YOU -->
+    <section>
+        <div class="section-tag">Chapter One</div>
+        <h2>Missing You <span class="accent">Every Single Day</span></h2>
+        <div class="panel" data-caption="MEANWHILE...">
+            <div class="panel-with-gif">
+                <!-- <img src="https://cdn.pixabay.com/animation/2024/09/16/23/57/23-57-35-255_512.gif" -->
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzNkMmtldXl2bHg1NWJ4bmx1NTRoZzMxY2ZieWI4ZHJ1c3Z1YWxkdCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xTiTnIByhw6hCJi58Y/giphy.gif"
+                    alt="Animated spider hanging on a thread">
+                <div class="text">
+                    <p>They say a spider can travel miles and still find its way back. I don't know if that's true, but
+                        I do know one thing my mind somehow always finds its way back to you. Maybe that's the funny
+                        thing about love. No matter where I am or what im doing, there's always a
+                        little part of my mind that's thinking about you. And honestly... I don't think I'd have it any
+                        other way, Because youre my favorite thought, every single day.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="glass"><h2>The Effect You Have On Me</h2><p>Every café reminds me of you. Every flower makes me think 'she'd love this.' Every cute cat, every sunset, every song somehow finds a way to bring you back into my thoughts. You've become part of everything I notice.</p></div>
+    <!-- LOVE & APPRECIATION -->
+    <section>
+        <div class="section-tag">Chapter Two</div>
+        <h2>Love &amp; <span class="accent">Appreciation</span></h2>
+        <p style="color:#cfcfe0; line-height:1.7; margin-bottom:24px; max-width:600px;">
+            Being a hero means saving the day. Loving you means I don't have to save anything you already make every
+            ordinary day feel like the best one. Here's some proof I can't stop saying it:
+        </p>
+        <div class="love-grid">
+            <div class="love-chip">
+                <img src="https://cdn.pixabay.com/animation/2022/11/03/15/03/15-03-37-426_512.gif"
+                    alt="Beating heart icon">
+                I LOVE YOU
+            </div>
+            <div class="love-chip">
+                <img src="https://cdn.pixabay.com/animation/2024/03/13/01/40/01-40-40-44_512.gif"
+                    alt="Beating heart icon">
+                I LOVE YOU MORE
+            </div>
+            <div class="love-chip">
+                <img src="https://cdn.pixabay.com/animation/2026/02/08/21/32/21-32-36-774_512.gif"
+                    alt="Group of red hearts">
+                I LOVE YOU TODAY
+            </div>
+            <div class="love-chip">
+                <img src="https://cdn.pixabay.com/animation/2022/11/03/15/03/15-03-37-426_512.gif"
+                    alt="Beating heart icon">
+                I LOVE YOU ALWAYS
+            </div>
+            <div class="love-chip">
+                <img src="https://cdn.pixabay.com/animation/2024/03/13/01/40/01-40-40-44_512.gif"
+                    alt="Beating heart icon">
+                I LOVE YOU, TRULY
+            </div>
+            <div class="love-chip">
+                <img src="https://cdn.pixabay.com/animation/2026/02/08/21/32/21-32-36-774_512.gif"
+                    alt="Group of red hearts">
+                I LOVE YOU. FULL STOP.
+            </div>
+        </div>
+    </section>
 
-<div class="glass"><h2>A Tiny Confession</h2><p>I keep smiling whenever your name pops up. I catch myself waiting for your messages. I look forward to telling you about the smallest things. You've occupied way more space in my head than you probably realize... and honestly, I'm perfectly okay with that.</p></div>
+    <!-- WHY YOU'RE SPECIAL -->
+    <section>
+        <div class="section-tag">Chapter Three</div>
+        <h2>Why You're <span class="accent">My Favorite Person</span></h2>
+        <ul class="reasons">
+            <li><span class="num">01</span>
+                <p>Your smile is the kind I could spend a lifetime trying to earn.</p>
+            </li>
 
-<div class="glass"><img class="gif" src="https://media.giphy.com/media/l4Ki4biBSwhjyrS48/giphy.gif"><h2>One Last Thing...</h2><p>Thank you for simply being you. Whether you realize it or not, you've made my days brighter, my thoughts softer, and my heart a whole lot happier. ❤️</p></div>
+            <li><span class="num">02</span>
+                <p>Your laugh is my favorite melody, and I'd happily listen to it forever.</p>
+            </li>
 
-<footer>
-<h2>Still curious? 👀</h2>
-<p>There might be something waiting for you...</p>
-<br>
-<button onclick="knowMore()">Wanna know more? 💌</button>
-</footer>
+            <li><span class="num">03</span>
+                <p>I adore the way you get all clueless sometimes it somehow makes you even more adorable.</p>
+            </li>
 
-<script>
-emailjs.init({publicKey:"iiW4y1el8nzs3y9jr"});
+            <li><span class="num">04</span>
+                <p>I don't think you realize just how beautiful you look when you're simply being yourself.</p>
+            </li>
 
-const templates=["template_7wykkfc","template_sdkuav1"]; // replace template_2
-let sent=0;
+            <li><span class="num">05</span>
+                <p>Every little thing about you from your smile to your tiny expressions keeps giving me new reasons to
+                    fall for you.</p>
+            </li>
+        </ul>
+    </section>
 
-function banner(msg){
-const b=document.getElementById("banner");
-b.innerHTML=msg;
-b.classList.add("show");
-setTimeout(()=>b.classList.remove("show"),3500);
-}
+    <!-- LOVE NOTES -->
+    <section>
+        <div class="section-tag">Chapter Four</div>
+        <h2>Little <span class="accent">Love Notes</span></h2>
+        <div class="notes-grid">
+            <div class="note-card">
+                <img src="https://cdn.pixabay.com/animation/2022/11/03/15/03/15-03-37-426_512.gif"
+                    alt="Beating heart icon">
+                <p>You're the first thing I think about when I wake up.</p>
+            </div>
+            <div class="note-card">
+                <img src="https://cdn.pixabay.com/animation/2025/09/22/01/55/01-55-06-648_512.gif"
+                    alt="Animated spider icon">
+                <p>Every song makes me think of a you now.</p>
+            </div>
+            <div class="note-card">
+                <img src="https://cdn.pixabay.com/animation/2024/03/13/01/40/01-40-40-44_512.gif"
+                    alt="Beating heart icon">
+                <p>I save romatic memes all day just to send you, hehehehee</p>
+            </div>
+        </div>
+    </section>
 
-function knowMore(){
-if(sent>=2){
-banner("Sorry, my subscription allows me to send only 2 templates :(");
-return;
-}
-const t=templates[Math.floor(Math.random()*templates.length)];
-emailjs.send("service_g7r5395",t);
-sent++;
-if(sent===1){
-banner("Click again to know something else too ❤️");
-}else{
-banner("Sorry, my subscription allows me to send only 2 templates :(");
-}
-}
+    <!-- LOVE LETTER -->
+    <section>
+        <div class="section-tag">Chapter Five</div>
+        <h2>A Little <span class="accent">Letter</span></h2>
+        <div class="panel letter-panel" data-caption="SPECIAL DELIVERY">
+            <img src="https://cdn.pixabay.com/animation/2025/01/08/23/27/23-27-02-953_512.gif"
+                alt="Animated love letter envelope with heart">
+            <div class="text">
+                <p>Dear Sayuuu, this page is just my way of sending a hug across the distance🥺. I love you more than
+                    any
+                    caption could ever say, and I miss you more with every hour that passes. Until I see you again,
+                    carry this with you.</p>
+            </div>
+        </div>
+    </section>
 
-const txt="If this page managed to make you smile even a little... then it has already done its job. ❤️";
-let i=0;
-(function type(){
-if(i<txt.length){
-document.getElementById("type").innerHTML+=txt.charAt(i++);
-setTimeout(type,40);
-}
-})();
+    <!-- FINALE -->
+    <section class="finale">
+        <div class="section-tag">Final Chapter</div>
+        <h2>Come Soon, <span class="accent">Love</span></h2>
+        <img class="finale-gif" src="https://cdn.pixabay.com/animation/2024/11/28/10/01/10-01-52-581_512.gif"
+            alt="Animated confetti celebration">
+        <p>Until then, I'll be here, swinging between the ordinary hours of my day, waiting for the next time I get to
+            see you. I love you. I miss you. That's the whole story, over and over.</p>
+        <span class="final-tag">I LOVE YOU ❤</span>
+    </section>
 
-document.querySelectorAll(".glass").forEach(el=>{
-new IntersectionObserver(entries=>{
-entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
-},{threshold:.2}).observe(el);
-});
+    <footer>
+        <span class="sig">With all my heart,</span>
+        Your Friendly Neighborhood Someone
+    </footer>
 
-function spawn(id,cls,char,count){
-const c=document.getElementById(id);
-for(let i=0;i<count;i++){
-const d=document.createElement("div");
-d.className=cls;
-d.innerHTML=char;
-d.style.left=Math.random()*100+"vw";
-d.style.animationDuration=(8+Math.random()*12)+"s";
-d.style.animationDelay=(-Math.random()*20)+"s";
-d.style.fontSize=(10+Math.random()*18)+"px";
-c.appendChild(d);
-}}
-for(let i=0;i<180;i++){
-const s=document.createElement("div");
-s.className="star";
-s.style.left=Math.random()*100+"vw";
-s.style.top=Math.random()*100+"vh";
-document.getElementById("stars").appendChild(s);
-}
-spawn("hearts","heart","❤️",35);
-spawn("petals","petal","🌸",35);
-</script>
 </body>
+
 </html>
