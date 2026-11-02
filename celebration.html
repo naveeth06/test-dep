@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Make a Wish · November 4</title>
+<meta name="description" content="Candles, a cake, and one enormous wish. Chapter two of your birthday.">
+<meta name="theme-color" content="#080611">
+<script src="js/gate.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='25' x='4' font-size='24' fill='%23e6c79f'%3E%E2%99%A5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="celebration">
+
+<a class="skip" href="#main">Skip to the content</a>
+
+<div class="veil" aria-hidden="true"><span class="veil-mark">&#10022;</span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="stardust" data-stardust aria-hidden="true"></div>
+<div class="lamp" data-lamp aria-hidden="true"></div>
+
+<header class="nav" data-nav>
+  <a class="brand" href="index.html" aria-label="For you, back to the beginning">
+    <span class="brand-mark" aria-hidden="true">&#10022;</span>
+    <span class="brand-name">for you</span>
+  </a>
+  <nav class="nav-links" aria-label="Chapters">
+    <a href="story.html">Our Story</a>
+    <a href="reasons.html">Reasons</a>
+    <a href="letter.html">The Letter</a>
+    <a href="surprise.html">Surprise</a>
+  </nav>
+  <div class="nav-right">
+    <span class="nav-date" aria-hidden="true">04 &middot; 11</span>
+    <button class="menu-btn" type="button" data-menu-open aria-expanded="false" aria-controls="menu">
+      <span class="menu-btn-text">Menu</span>
+      <span class="menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<div class="progress" aria-hidden="true"><span data-progress></span></div>
+
+<div class="menu" id="menu" hidden>
+  <div class="menu-inner">
+    <div class="menu-head">
+      <span class="eyebrow">Seven chapters</span>
+      <button class="menu-close" type="button" data-menu-close aria-label="Close the menu">Close</button>
+    </div>
+    <nav class="menu-list" aria-label="All chapters">
+      <a href="index.html"><span class="menu-num">01</span><span class="menu-title">The Invitation</span></a>
+      <a href="celebration.html" aria-current="page"><span class="menu-num">02</span><span class="menu-title">Make a Wish</span></a>
+      <a href="story.html"><span class="menu-num">03</span><span class="menu-title">Our Story</span></a>
+      <a href="reasons.html"><span class="menu-num">04</span><span class="menu-title">Reasons I Love You</span></a>
+      <a href="letter.html"><span class="menu-num">05</span><span class="menu-title">A Letter</span></a>
+      <a href="surprise.html"><span class="menu-num">06</span><span class="menu-title">A Surprise</span></a>
+      <a href="wish.html"><span class="menu-num">07</span><span class="menu-title">The Last Page</span></a>
+    </nav>
+    <div class="menu-foot">
+      <p>Made by hand. For you.</p>
+      <p class="menu-date">November 4</p>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="page-hero celebrate-head">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Chapter two &middot; the fourth of November</p>
+      <h1 class="page-title">
+        <span class="line"><span class="line-in" data-hero-line>Make a wish,</span></span>
+        <span class="line"><span class="line-in" data-hero-line><em>and mean it.</em></span></span>
+      </h1>
+      <p class="page-lede" data-reveal>
+        The candles are already lit. Tap each flame when you are ready, then close your
+        eyes and ask for something enormous. I will spend the year trying to meet it.
+      </p>
+    </div>
+  </header>
+
+  <section class="cake-section" aria-labelledby="cake-heading">
+    <h2 class="sr-only" id="cake-heading">Your birthday cake</h2>
+    <div class="cake-stage" data-cake-stage>
+      <div class="cake" data-cake>
+        <span class="cake-plate" aria-hidden="true"></span>
+        <div class="cake-tier cake-tier--bottom" aria-hidden="true">
+          <span class="cake-drips"></span>
+          <span class="cake-sprinkles"></span>
+          <span class="cake-icing"></span>
+        </div>
+        <div class="cake-tier cake-tier--top" aria-hidden="true">
+          <span class="cake-drips"></span>
+          <span class="cake-sprinkles"></span>
+          <span class="cake-icing"></span>
+        </div>
+        <div class="candles" role="group" aria-label="Five birthday candles">
+          <button class="candle" type="button" data-candle aria-pressed="false" aria-label="Blow out candle 1">
+            <span class="candle-stick" aria-hidden="true"></span>
+            <span class="candle-flame" aria-hidden="true"></span>
+            <span class="candle-smoke" aria-hidden="true"></span>
+          </button>
+          <button class="candle" type="button" data-candle aria-pressed="false" aria-label="Blow out candle 2">
+            <span class="candle-stick" aria-hidden="true"></span>
+            <span class="candle-flame" aria-hidden="true"></span>
+            <span class="candle-smoke" aria-hidden="true"></span>
+          </button>
+          <button class="candle" type="button" data-candle aria-pressed="false" aria-label="Blow out candle 3">
+            <span class="candle-stick" aria-hidden="true"></span>
+            <span class="candle-flame" aria-hidden="true"></span>
+            <span class="candle-smoke" aria-hidden="true"></span>
+          </button>
+          <button class="candle" type="button" data-candle aria-pressed="false" aria-label="Blow out candle 4">
+            <span class="candle-stick" aria-hidden="true"></span>
+            <span class="candle-flame" aria-hidden="true"></span>
+            <span class="candle-smoke" aria-hidden="true"></span>
+          </button>
+          <button class="candle" type="button" data-candle aria-pressed="false" aria-label="Blow out candle 5">
+            <span class="candle-stick" aria-hidden="true"></span>
+            <span class="candle-flame" aria-hidden="true"></span>
+            <span class="candle-smoke" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <p class="cake-hint" data-cake-hint>
+        <span class="cake-hint-dot" aria-hidden="true"></span>
+        Tap the flames, or press B
+      </p>
+      <button class="cake-all" type="button" data-cake-all>blow them all out at once</button>
+    </div>
+  </section>
+
+  <section class="section cake-after" id="cake-after" hidden>
+    <div class="wrap narrow center">
+      <p class="eyebrow">Wish received</p>
+      <h2 class="cake-after-title">Now let me spend the year <em>trying to make it real.</em></h2>
+      <p class="cake-after-text">
+        I do not know what you asked for. But I hope a little of it was this:
+        more ordinary evenings, more of your laugh in the kitchen, fewer nights
+        spent wondering whether you are loved. You are. Constantly.
+      </p>
+      <a class="btn" href="story.html">
+        <span>Continue to our story</span>
+        <span class="btn-arrow" aria-hidden="true">&#8594;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section the-fourth">
+    <div class="wrap fourth-grid">
+      <div>
+        <p class="eyebrow" data-reveal>The fourth</p>
+        <h2 class="sec-title" data-reveal>A day the world <em>got better.</em></h2>
+      </div>
+      <div class="fourth-copy">
+        <p data-reveal>
+          I have never been good with dates. I remember the way a day felt instead.
+          But this one I know by heart, because it is the day the person I love most
+          arrived in the world, and every year I get to be grateful about it out loud.
+        </p>
+        <p data-reveal>
+          So: happy birthday. For the cake, for the candles, for the wish, and for all
+          the years of this we still have left to spend.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <nav class="next-chapter" aria-label="Next chapter">
+    <a href="story.html">
+      <span class="next-kicker">Next chapter &middot; 03</span>
+      <span class="next-title">Our Story <span class="next-arrow" aria-hidden="true">&#8594;</span></span>
+    </a>
+  </nav>
+  <div class="foot-meta">
+    <span>Made by hand, for you</span>
+    <span>04 &middot; 11</span>
+  </div>
+</footer>
+
+<noscript><style>.veil{display:none}</style></noscript>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/core.js" defer></script>
+<script src="js/celebrate.js" defer></script>
+<script src="js/pages.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

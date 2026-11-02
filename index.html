@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, My Love · November 4</title>
+<meta name="description" content="A small universe built for you: seven chapters, one birthday, and everything I never say out loud.">
+<meta name="theme-color" content="#080611">
+<script src="js/gate.js"></script>
+<meta property="og:title" content="Happy Birthday, My Love">
+<meta property="og:description" content="A small universe built for you. Seven chapters. One birthday.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='25' x='4' font-size='24' fill='%23e6c79f'%3E%E2%99%A5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="index">
+
+<a class="skip" href="#main">Skip to the content</a>
+
+<div class="veil" aria-hidden="true"><span class="veil-mark">&#10022;</span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="stardust" data-stardust aria-hidden="true"></div>
+<div class="lamp" data-lamp aria-hidden="true"></div>
+
+<header class="nav" data-nav>
+  <a class="brand" href="index.html" aria-label="For you, back to the beginning">
+    <span class="brand-mark" aria-hidden="true">&#10022;</span>
+    <span class="brand-name">for you</span>
+  </a>
+  <nav class="nav-links" aria-label="Chapters">
+    <a href="story.html">Our Story</a>
+    <a href="reasons.html">Reasons</a>
+    <a href="letter.html">The Letter</a>
+    <a href="surprise.html">Surprise</a>
+  </nav>
+  <div class="nav-right">
+    <span class="nav-date" aria-hidden="true">04 &middot; 11</span>
+    <button class="menu-btn" type="button" data-menu-open aria-expanded="false" aria-controls="menu">
+      <span class="menu-btn-text">Menu</span>
+      <span class="menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<div class="progress" aria-hidden="true"><span data-progress></span></div>
+
+<div class="menu" id="menu" hidden>
+  <div class="menu-inner">
+    <div class="menu-head">
+      <span class="eyebrow">Seven chapters</span>
+      <button class="menu-close" type="button" data-menu-close aria-label="Close the menu">Close</button>
+    </div>
+    <nav class="menu-list" aria-label="All chapters">
+      <a href="index.html" aria-current="page"><span class="menu-num">01</span><span class="menu-title">The Invitation</span></a>
+      <a href="celebration.html"><span class="menu-num">02</span><span class="menu-title">Make a Wish</span></a>
+      <a href="story.html"><span class="menu-num">03</span><span class="menu-title">Our Story</span></a>
+      <a href="reasons.html"><span class="menu-num">04</span><span class="menu-title">Reasons I Love You</span></a>
+      <a href="letter.html"><span class="menu-num">05</span><span class="menu-title">A Letter</span></a>
+      <a href="surprise.html"><span class="menu-num">06</span><span class="menu-title">A Surprise</span></a>
+      <a href="wish.html"><span class="menu-num">07</span><span class="menu-title">The Last Page</span></a>
+    </nav>
+    <div class="menu-foot">
+      <p>Made by hand. For you.</p>
+      <p class="menu-date">November 4</p>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="hero" data-hero>
+    <canvas class="scene" id="scene" aria-hidden="true"></canvas>
+    <div class="hero-aura" aria-hidden="true"></div>
+    <div class="hero-inner wrap">
+      <p class="eyebrow hero-eyebrow" data-hero-item>November the fourth</p>
+      <h1 class="hero-title">
+        <span class="line"><span class="line-in" data-hero-line>Happy</span></span>
+        <span class="line"><span class="line-in" data-hero-line>Birthday,</span></span>
+        <span class="line"><span class="line-in" data-hero-line><em>my love.</em></span></span>
+      </h1>
+      <p class="hero-sub" data-hero-item>
+        A small universe, built entirely for you. Take your time with it.
+        Every corner of it is yours.
+      </p>
+
+      <div class="countdown" data-countdown data-hero-item>
+        <p class="countdown-kicker" data-countdown-kicker>until your day begins</p>
+        <div class="countdown-units" data-countdown-units aria-hidden="true">
+          <div class="cd-unit">
+            <span class="cd-num" data-cd="days">00</span>
+            <span class="cd-lab">days</span>
+          </div>
+          <span class="cd-sep" aria-hidden="true"></span>
+          <div class="cd-unit">
+            <span class="cd-num" data-cd="hours">00</span>
+            <span class="cd-lab">hours</span>
+          </div>
+          <span class="cd-sep" aria-hidden="true"></span>
+          <div class="cd-unit">
+            <span class="cd-num" data-cd="minutes">00</span>
+            <span class="cd-lab">minutes</span>
+          </div>
+          <span class="cd-sep" aria-hidden="true"></span>
+          <div class="cd-unit">
+            <span class="cd-num" data-cd="seconds">00</span>
+            <span class="cd-lab">seconds</span>
+          </div>
+        </div>
+        <p class="sr-only" data-countdown-sr></p>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#invitation" data-hero-item>
+      <span class="scroll-cue-line" aria-hidden="true"><i></i></span>
+      <span class="scroll-cue-text">begin</span>
+    </a>
+  </section>
+
+  <section class="section invite" id="invitation">
+    <div class="wrap invite-grid">
+      <p class="eyebrow" data-reveal>Before you scroll</p>
+      <div class="invite-body">
+        <p class="dropcap" data-reveal>
+          This is not really a website. It is a room I built for you, out of the things
+          I never say out loud: that you are the softest part of my life, that the ordinary
+          days with you are the ones I would keep if I could only keep a few, and that in
+          every version of this world, I would find you and choose you again.
+        </p>
+        <p data-reveal>
+          There are seven small chapters ahead. None of them are long. All of them are yours.
+          Go slowly. Some of them were difficult to write.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" data-marquee>
+      <span>my calm</span><i>&#10022;</i>
+      <span>my favourite voice</span><i>&#10022;</i>
+      <span>my home</span><i>&#10022;</i>
+      <span>my best decision</span><i>&#10022;</i>
+      <span>my person</span><i>&#10022;</i>
+      <span>my always</span><i>&#10022;</i>
+      <span>my calm</span><i>&#10022;</i>
+      <span>my favourite voice</span><i>&#10022;</i>
+      <span>my home</span><i>&#10022;</i>
+      <span>my best decision</span><i>&#10022;</i>
+      <span>my person</span><i>&#10022;</i>
+      <span>my always</span><i>&#10022;</i>
+    </div>
+  </div>
+
+  <section class="section chapters" id="chapters">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-reveal>The chapters</p>
+        <h2 class="sec-title" data-reveal>Seven ways of saying <em>I love you</em>.</h2>
+      </header>
+
+      <ol class="chapter-list">
+        <li data-reveal>
+          <a class="chapter-row" href="index.html" aria-current="page">
+            <span class="ch-num">01</span>
+            <span class="ch-title">The Invitation</span>
+            <span class="ch-desc">You are here</span>
+            <span class="ch-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="chapter-row" href="celebration.html">
+            <span class="ch-num">02</span>
+            <span class="ch-title">Make a Wish</span>
+            <span class="ch-desc">Candles, and something enormous</span>
+            <span class="ch-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="chapter-row" href="story.html">
+            <span class="ch-num">03</span>
+            <span class="ch-title">Our Story</span>
+            <span class="ch-desc">In the order it happened</span>
+            <span class="ch-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="chapter-row" href="reasons.html">
+            <span class="ch-num">04</span>
+            <span class="ch-title">Reasons I Love You</span>
+            <span class="ch-desc">Twelve of a thousand</span>
+            <span class="ch-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="chapter-row" href="letter.html">
+            <span class="ch-num">05</span>
+            <span class="ch-title">A Letter</span>
+            <span class="ch-desc">What I never say out loud</span>
+            <span class="ch-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="chapter-row" href="surprise.html">
+            <span class="ch-num">06</span>
+            <span class="ch-title">A Surprise</span>
+            <span class="ch-desc">Something to open</span>
+            <span class="ch-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="chapter-row" href="wish.html">
+            <span class="ch-num">07</span>
+            <span class="ch-title">The Last Page</span>
+            <span class="ch-desc">One more thing, and then everything</span>
+            <span class="ch-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <nav class="next-chapter" aria-label="Next chapter">
+    <a href="celebration.html">
+      <span class="next-kicker">Next chapter &middot; 02</span>
+      <span class="next-title">Make a Wish <span class="next-arrow" aria-hidden="true">&#8594;</span></span>
+    </a>
+  </nav>
+  <div class="foot-meta">
+    <span>Made by hand, for you</span>
+    <span>04 &middot; 11</span>
+  </div>
+</footer>
+
+<noscript><style>.veil{display:none}</style></noscript>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="vendor/three.min.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/core.js" defer></script>
+<script src="js/scene.js" defer></script>
+<script src="js/pages.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
