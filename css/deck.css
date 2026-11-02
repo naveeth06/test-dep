@@ -1,0 +1,342 @@
+/* =========================================================
+   Chapter four: a deck you can actually hold.
+
+   Three separate transform layers, so nothing fights:
+   .deck-stage  the scroll drift and the perspective
+   .deck        the pointer tilt
+   .deck-card   the position in the fan (written by js/deck.js)
+   .deck-card__shell  the entrance
+   ========================================================= */
+
+.deck-section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(0.5rem, 2vw, 1.5rem) 0 clamp(3rem, 7vw, 5rem);
+}
+
+.deck-section.has-scroll-story {
+  min-height: 520vh;
+  min-height: 520svh;
+  padding: 0;
+}
+
+.deck-wrap {
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.2rem, 2.6vw, 1.7rem);
+}
+
+.deck-section.has-scroll-story .deck-wrap {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  align-content: center;
+  padding: clamp(1.5rem, 5vh, 3rem) 0;
+}
+
+.deck-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(94vw, 486px);
+  padding: clamp(0.7rem, 2vw, 1.2rem) 0;
+  perspective: 1500px;
+  perspective-origin: 50% 46%;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.deck-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.deck-glow {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 116%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(230, 199, 159, 0.16),
+    rgba(227, 166, 169, 0.07) 52%,
+    transparent 74%
+  );
+  pointer-events: none;
+}
+
+.deck {
+  position: relative;
+  width: min(84vw, 396px);
+  aspect-ratio: 3 / 4;
+  transform-style: preserve-3d;
+  outline: none;
+  will-change: transform;
+}
+
+.deck:focus-visible {
+  outline: 2px solid rgba(230, 199, 159, 0.55);
+  outline-offset: 15px;
+  border-radius: 22px;
+}
+
+.deck-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+.deck-card__shell {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  will-change: transform, opacity;
+}
+
+.deck-card__cover,
+.deck-card__note {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.3rem, 4vw, 2.05rem);
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* ---------- the cover every card wears ---------- */
+
+.deck-card__cover {
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(120% 85% at 50% 0%, rgba(227, 166, 169, 0.18), transparent 58%),
+    linear-gradient(158deg, #1f162f 0%, #130d1f 62%, #0d0817 100%);
+  box-shadow:
+    0 26px 50px -30px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.deck-card__cover::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border: 1px solid rgba(230, 199, 159, 0.16);
+  border-radius: 13px;
+  pointer-events: none;
+}
+
+.deck-card__cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    118deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.055) 49%,
+    transparent 58%
+  );
+  pointer-events: none;
+}
+
+.deck-card__num {
+  font-size: var(--t-label);
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.deck-card__glyph {
+  align-self: center;
+  font-size: clamp(2.1rem, 7vw, 3rem);
+  color: var(--gold);
+  opacity: 0.7;
+  text-shadow: 0 0 34px rgba(230, 199, 159, 0.45);
+}
+
+.deck-card__seal {
+  align-self: center;
+  font-size: var(--t-label);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+}
+
+/* ---------- the paper note, only on the card in your hand ---------- */
+
+.deck-card__note {
+  color: var(--paper-ink);
+  border: 1px solid rgba(36, 26, 43, 0.14);
+  background:
+    radial-gradient(120% 80% at 18% 0%, #fdf7ec, transparent 60%),
+    linear-gradient(165deg, var(--paper), var(--paper-2));
+  box-shadow: 0 30px 60px -34px rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  transform: scale(0.992);
+  transition:
+    opacity 0.42s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+.deck-card__note::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(36, 26, 43, 0.16);
+  border-radius: 13px;
+  pointer-events: none;
+}
+
+.deck-card.is-front .deck-card__note {
+  opacity: 1;
+  transform: none;
+}
+
+.deck-stage.is-dragging .deck-card.is-front .deck-card__note {
+  box-shadow: 0 46px 92px -38px rgba(0, 0, 0, 0.95);
+}
+
+.deck-card__index {
+  font-size: var(--t-label);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+}
+
+.deck-card__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 4vw, 1.62rem);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+  color: var(--paper-ink);
+}
+
+.deck-card__flourish {
+  align-self: flex-end;
+  font-size: 0.75rem;
+  color: rgba(36, 26, 43, 0.4);
+}
+
+/* ---------- controls ---------- */
+
+.deck-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.9rem, 3vw, 1.5rem);
+}
+
+.deck-step {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(20, 13, 33, 0.5);
+  color: var(--ivory);
+  font-size: 0.95rem;
+  line-height: 1;
+  transition:
+    border-color 0.3s var(--ease-out),
+    background 0.3s var(--ease-out),
+    color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.deck-step:hover:not(:disabled) {
+  border-color: rgba(230, 199, 159, 0.5);
+  background: rgba(230, 199, 159, 0.1);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.deck-step:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.deck-step:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.deck-meter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 16px;
+}
+
+.deck-meter span {
+  display: block;
+  width: 2px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--line);
+  transition:
+    height 0.35s var(--ease-out),
+    background 0.35s var(--ease-out);
+}
+
+.deck-meter span.is-on {
+  height: 15px;
+  background: var(--gold);
+}
+
+.deck-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.4rem 0.7rem;
+  max-width: 34ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: var(--t-label);
+  letter-spacing: 0.18em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+}
+
+.deck-hint [data-deck-count] {
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.deck-hint-dot {
+  color: rgba(230, 199, 159, 0.4);
+}
+
+.deck-fallback {
+  color: var(--ivory-dim);
+  max-width: 40ch;
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .deck-card__text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-card__note,
+  .deck-card__shell,
+  .deck-step,
+  .deck-meter span {
+    transition: none;
+  }
+}

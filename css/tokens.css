@@ -1,0 +1,60 @@
+/* =========================================================
+   Tokens
+   One palette: ink night, champagne gold, dusty rose, ivory.
+   One type pairing: Fraunces (display) + Jost (interface).
+   ========================================================= */
+
+:root {
+  /* palette */
+  --ink: #080611;
+  --ink-2: #0c0918;
+  --plum: #150e24;
+  --ivory: #f5eee5;
+  --ivory-dim: rgba(245, 238, 229, 0.68);
+  --ivory-faint: rgba(245, 238, 229, 0.44);
+  --gold: #e6c79f;
+  --gold-bright: #f7e4c6;
+  --gold-deep: #b78d5e;
+  --rose: #e3a6a9;
+  --rose-deep: #b3747f;
+  --line: rgba(245, 238, 229, 0.14);
+  --line-soft: rgba(245, 238, 229, 0.08);
+  --line-strong: rgba(245, 238, 229, 0.26);
+
+  /* paper (the letter page) */
+  --paper: #f1e7d8;
+  --paper-2: #e7d9c5;
+  --paper-ink: #241a2b;
+  --paper-muted: rgba(36, 26, 43, 0.68);
+
+  /* type */
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+
+  --t-hero: clamp(3.1rem, 10.2vw, 8.8rem);
+  --t-title: clamp(2.45rem, 6.6vw, 5.2rem);
+  --t-h2: clamp(1.85rem, 4.1vw, 3.2rem);
+  --t-h3: clamp(1.28rem, 2vw, 1.7rem);
+  --t-lede: clamp(1.02rem, 1.15vw + 0.72rem, 1.24rem);
+  --t-body: clamp(0.98rem, 0.42vw + 0.86rem, 1.08rem);
+  --t-small: clamp(0.79rem, 0.28vw + 0.72rem, 0.87rem);
+  --t-label: clamp(0.63rem, 0.2vw + 0.57rem, 0.71rem);
+
+  /* space */
+  --sp-1: 0.5rem;
+  --sp-2: 0.875rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2.5rem;
+  --sp-5: 4rem;
+  --sp-6: 6.5rem;
+  --sp-7: 9rem;
+
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --max: 1200px;
+  --nav-h: 76px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
